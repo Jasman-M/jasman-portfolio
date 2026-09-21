@@ -15,7 +15,7 @@ import {
 } from "@/data/content";
 
 const links = [
-  { label: "Resume", href: profile.resume, download: true },
+  { label: "Resume", href: profile.resume, external: true },
   { label: "LinkedIn", href: profile.linkedin, external: true },
   { label: "GitHub", href: profile.github, external: true },
   { label: "Email", href: `mailto:${profile.email}` },
@@ -31,7 +31,6 @@ function LinkRow({ compact = false }: { compact?: boolean }) {
               href={l.href}
               className="textLink"
               {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              {...(l.download ? { download: "" } : {})}
             >
               {l.label}
             </a>
