@@ -37,8 +37,8 @@ export default function CursorGlow() {
 
     const frame = () => {
       raf = requestAnimationFrame(frame);
-      x += (tx - x) * 0.085;
-      y += (ty - y) * 0.085;
+      x += (tx - x) * 0.38;
+      y += (ty - y) * 0.38;
       el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
     };
 
