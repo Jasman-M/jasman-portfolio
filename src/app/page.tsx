@@ -296,9 +296,6 @@ export default function Home() {
             <p className="sectionLabel">
               <span>07 / Contact</span>
             </p>
-            <h2 className="sectionTitle footerTitle">
-              Open to fall 2026 internships in finance, fintech, and business analysis.
-            </h2>
             <p className="footerMail">
               <Magnetic>
                 <a className="textLink footerMailLink" href={`mailto:${profile.email}`}>
