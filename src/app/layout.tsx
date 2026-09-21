@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import CursorGlow from "@/components/CursorGlow";
 import { profile } from "@/data/content";
 import "./globals.css";
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
         <CursorGlow />
         {children}
+        <Analytics />
       </body>
     </html>
   );
