@@ -16,8 +16,8 @@ export const profile = {
 };
 
 export const about = [
-  "I'm a second-year student at Wilfrid Laurier University, working through a Financial Mathematics and Bachelor of Business Administration double degree.",
-  "I'm based in Brampton, Ontario, and I spend most of my time on capital markets — active trading and investing, and the quantitative work underneath it.",
+  "I’m a second-year student at Wilfrid Laurier University, working through a Financial Mathematics and Bachelor of Business Administration double degree.",
+  "I’m based in Brampton, Ontario, and I spend most of my time on capital markets — active trading and investing, and the quantitative work underneath it.",
   "Outside of that I train in endurance athletics, currently working toward an Ironman triathlon.",
 ];
 
@@ -57,7 +57,7 @@ export const caseComps: CaseComp[] = [
       },
       {
         src: "/images/techhawk-1.jpg",
-        alt: "The TechHawk team presenting on stage, with the slide 'Vancouver, BC: The Support TechHawk Needs' projected behind them.",
+        alt: "The TechHawk team presenting on stage, with the slide ‘Vancouver, BC: The Support TechHawk Needs’ projected behind them.",
       },
       {
         src: "/images/techhawk-3.jpg",
@@ -76,7 +76,7 @@ export const caseComps: CaseComp[] = [
     date: "Jan 2026",
     place: "Waterloo, ON",
     bullets: [
-      "Developed a go-to-market strategy to grow active membership on Canada Basketball's UNIFY+ platform",
+      "Developed a go-to-market strategy to grow active membership on Canada Basketball’s UNIFY+ platform",
       "Led feasibility analysis modeling user acquisition scenarios projecting a **70%** registration-to-conversion",
     ],
     images: [
@@ -104,14 +104,40 @@ export const caseComps: CaseComp[] = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  name: string;
+  blurb: string;
+  links: { label: string; href: string }[];
+  bullets: string[];
+  video: string | null;
+  poster: string | null;
+};
+
+export const projects: Project[] = [
+  {
+    name: "Gambler’s Ruin",
+    blurb:
+      "A research report on the simple random walk with two absorbing barriers \u2014 exact results derived three independent ways, then pointed at S&P 500 returns since 1990.",
+    links: [
+      { label: "Report (PDF)", href: "/reports/gamblers-ruin.pdf" },
+      { label: "GitHub", href: "https://github.com/Jasman-M/Gamblers-Ruin-Report" },
+    ],
+    bullets: [
+      "Derived ruin probability and expected duration three independent ways, validated by Monte Carlo",
+      "Applied it to S&P 500 returns since 1990, modelling a **5%** ruin probability for fixed-stake trading",
+      "Bootstrapping the real return distribution raised modelled ruin to **40%**, exposing the fixed-stake flaw",
+    ],
+    video: null,
+    poster: null,
+  },
   {
     name: "ARIA",
     blurb:
       "An insurance underwriting copilot for life & health, home & property, and commercial & business lines: structured risk intake, tier recommendation, and a generated underwriting worksheet.",
-    repo: "https://github.com/Jasman-M/ARIA",
-    site: null as string | null,
+    links: [{ label: "GitHub", href: "https://github.com/Jasman-M/ARIA" }],
+    bullets: [],
     video: "/video/aria-launch.mp4",
+    poster: "/images/aria-poster.png",
   },
 ];
 

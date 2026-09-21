@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import HeroCanvas from "@/components/HeroCanvas";
 import Magnetic from "@/components/Magnetic";
@@ -158,56 +159,59 @@ export default function Home() {
         <section className="section" id="projects">
           <div className="shell">
             <SectionHead n="03" label="Projects" title="Projects" />
-            {projects.map((p) => (
-              <Reveal key={p.name}>
-                <p className="projectLine">
-                  <strong className="projectName">{p.name}</strong>
-                  <span className="projectDash"> — </span>
-                  <span className="projectBlurb">{p.blurb}</span>{" "}
-                  <Magnetic>
-                    <a
-                      className="textLink projectLink"
-                      href={p.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  </Magnetic>
-                  {p.site && (
-                    <>
-                      <span className="projectSep"> · </span>
-                      <Magnetic>
-                        <a
-                          className="textLink projectLink"
-                          href={p.site}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Site
-                        </a>
-                      </Magnetic>
-                    </>
+            <div className="projectList">
+              {projects.map((p, i) => (
+                <Reveal key={p.name} delay={i * 70}>
+                  <p className="projectLine">
+                    <strong className="projectName">{p.name}</strong>
+                    <span className="projectDash"> — </span>
+                    <span className="projectBlurb">{p.blurb}</span>{" "}
+                    {p.links.map((l, j) => (
+                      <Fragment key={l.label}>
+                        {j > 0 && <span className="projectSep"> · </span>}
+                        <Magnetic>
+                          <a
+                            className="textLink projectLink"
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {l.label}
+                          </a>
+                        </Magnetic>
+                      </Fragment>
+                    ))}
+                  </p>
+
+                  {p.bullets.length > 0 && (
+                    <ul className="bullets projectBullets">
+                      {p.bullets.map((b) => (
+                        <li key={b}>
+                          <Rich text={b} />
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </p>
-                {p.video && (
-                  <figure className="videoWrap">
-                    <video
-                      className="video"
-                      controls
-                      preload="metadata"
-                      playsInline
-                      poster="/images/aria-poster.png"
-                    >
-                      <source src={p.video} type="video/mp4" />
-                      Your browser doesn&rsquo;t support embedded video.{" "}
-                      <a href={p.video}>Download the ARIA launch video</a>.
-                    </video>
-                    <figcaption className="mono videoCap">ARIA — launch video</figcaption>
-                  </figure>
-                )}
-              </Reveal>
-            ))}
+
+                  {p.video && (
+                    <figure className="videoWrap">
+                      <video
+                        className="video"
+                        controls
+                        preload="metadata"
+                        playsInline
+                        {...(p.poster ? { poster: p.poster } : {})}
+                      >
+                        <source src={p.video} type="video/mp4" />
+                        Your browser doesn&rsquo;t support embedded video.{" "}
+                        <a href={p.video}>Download the {p.name} launch video</a>.
+                      </video>
+                      <figcaption className="mono videoCap">{p.name} — launch video</figcaption>
+                    </figure>
+                  )}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 

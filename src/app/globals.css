@@ -599,6 +599,16 @@ img { max-width: 100%; display: block; }
 
 .projectSep { color: var(--text-dim); }
 
+.projectList {
+  display: grid;
+  gap: 46px;
+}
+
+.projectBullets {
+  margin-top: 14px;
+  max-width: 76ch;
+}
+
 .videoWrap {
   margin: 24px 0 0;
   max-width: 760px;
