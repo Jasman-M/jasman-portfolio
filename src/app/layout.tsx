@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import CursorGlow from "@/components/CursorGlow";
+import { profile } from "@/data/content";
 import "./globals.css";
 
 const sans = Inter({
@@ -24,12 +25,10 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Jasman Mander",
-  description:
-    "Financial Mathematics student building quantitative tools and go-to-market strategy.",
+  description: profile.positioning,
   openGraph: {
     title: "Jasman Mander",
-    description:
-      "Financial Mathematics student building quantitative tools and go-to-market strategy.",
+    description: profile.positioning,
     type: "website",
   },
 };

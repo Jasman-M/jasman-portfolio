@@ -7,7 +7,7 @@
 export const profile = {
   name: "Jasman Mander",
   positioning:
-    "Financial Mathematics student building quantitative tools and go-to-market strategy.",
+    "Financial Mathematics and business, where the modelling meets the market.",
   location: "Brampton, ON",
   email: "Jasmander789@gmail.com",
   linkedin: "https://www.linkedin.com/in/Jasman-M",
@@ -109,7 +109,7 @@ export const projects = [
     name: "ARIA",
     blurb:
       "An insurance underwriting copilot for life & health, home & property, and commercial & business lines: structured risk intake, tier recommendation, and a generated underwriting worksheet.",
-    repo: "https://github.com/Jasman-M/Data-Science/tree/main/aria-insurance-copilot",
+    repo: "https://github.com/Jasman-M/ARIA",
     site: null as string | null,
     video: "/video/aria-launch.mp4",
   },
