@@ -6,7 +6,7 @@ Built with Next.js (App Router). Static export-friendly, no backend.
 
 ## Signature pieces
 
-- **Hero** — a black-and-white cut-out portrait (`public/images/portrait-cutout.png`,
+- **Hero** — a black-and-white cut-out portrait (`public/images/hero-portrait.png`,
   shoulders widened past the original photo's crop) with the name set huge across
   it in `mix-blend-mode: difference`, so it inverts wherever it crosses the portrait.
   On phones the name stacks onto two lines.
