@@ -48,7 +48,8 @@ export type CaseComp = {
   date: string;
   place: string;
   bullets: string[];
-  images: { src: string; alt: string }[];
+  /** `caption` is the short line shown when the photo is opened in the Recognition strip. */
+  images: { src: string; alt: string; caption?: string }[];
 };
 
 export const caseComps: CaseComp[] = [
@@ -70,10 +71,12 @@ export const caseComps: CaseComp[] = [
       {
         src: "/images/techhawk-2.jpg",
         alt: "Jasman Mander and his three teammates holding LSCA × LEC certificates in front of a Laurier banner.",
+        caption: "With my team, certificates in hand.",
       },
       {
         src: "/images/techhawk-1.jpg",
         alt: "The TechHawk team presenting on stage, with the slide ‘Vancouver, BC: The Support TechHawk Needs’ projected behind them.",
+        caption: "Presenting our TechHawk strategy on stage.",
       },
       {
         src: "/images/techhawk-3.jpg",
@@ -99,6 +102,7 @@ export const caseComps: CaseComp[] = [
       {
         src: "/images/lazcup-1.jpg",
         alt: "The LazCup 2026 award ceremony at the Laurier Marketing Association, teams on stage holding certificates.",
+        caption: "The LazCup award ceremony.",
       },
     ],
   },
@@ -121,8 +125,19 @@ export const caseComps: CaseComp[] = [
   },
 ];
 
-/** The three photos in the case competition strip, in display order. */
-export const casePhotos = [caseComps[0].images[0], caseComps[1].images[0], caseComps[0].images[1]];
+/** A photo from a case competition, labelled with the event it's from. */
+function fromComp(c: CaseComp, i: number) {
+  const img = c.images[i];
+  return {
+    src: img.src,
+    alt: img.alt,
+    caption: img.caption ?? img.alt,
+    event: [c.competition, c.placement, c.date].filter(Boolean).join(" · "),
+  };
+}
+
+/** The three photos in the Recognition strip, in display order. */
+export const casePhotos = [fromComp(caseComps[0], 0), fromComp(caseComps[1], 0), fromComp(caseComps[0], 1)];
 
 export type Project = {
   name: string;
@@ -196,36 +211,6 @@ export const experience = [
     bullets: [
       "Supervising concurrent aquatic sessions with real-time risk assessment and compliance protocols",
       "Delivering structured swim instruction across certification levels",
-    ],
-  },
-];
-
-export const skills = [
-  {
-    group: "Financial",
-    items: [
-      "Financial modelling",
-      "Variance analysis",
-      "Revenue projections",
-      "Market research",
-    ],
-  },
-  {
-    group: "Business",
-    items: [
-      "Strategic planning",
-      "Go-to-market strategy",
-      "Competitive analysis",
-      "Risk mitigation",
-    ],
-  },
-  {
-    group: "Tools / Technical",
-    items: [
-      "Microsoft Excel (PivotTables, financial models)",
-      "PowerPoint",
-      "Python (pandas, numpy)",
-      "Git/GitHub",
     ],
   },
 ];

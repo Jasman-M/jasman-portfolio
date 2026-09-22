@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CasePhotos from "@/components/CasePhotos";
 import Magnetic from "@/components/Magnetic";
 import RandomWalks from "@/components/RandomWalks";
 import Reveal from "@/components/Reveal";
@@ -13,7 +14,6 @@ import {
   experience,
   profile,
   projects,
-  skills,
 } from "@/data/content";
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -281,18 +281,8 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <Reveal className="photoStrip">
-              {casePhotos.map((img) => (
-                <figure className="photo" key={img.src}>
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 720px) 80vw, 33vw"
-                    className="photoImg"
-                  />
-                </figure>
-              ))}
+            <Reveal>
+              <CasePhotos photos={casePhotos} />
             </Reveal>
 
             <Reveal>
@@ -335,37 +325,6 @@ export default function Home() {
                 </tbody>
               </table>
             </Reveal>
-          </div>
-        </section>
-
-        {/* ---------------- Skills ---------------- */}
-        <section className="section" id="skills">
-          <div className="shell">
-            <Reveal>
-              <Label>Skills</Label>
-            </Reveal>
-            <div className="skills">
-              {skills.map((s, i) => (
-                <Reveal key={s.group} className="skill">
-                  <div className="skillNum" aria-hidden="true">
-                    {pad(i + 1)}
-                  </div>
-                  <div>
-                    <h3 className="skillTitle">{s.group}</h3>
-                    <ol className="skillList">
-                      {s.items.map((it, j) => (
-                        <li key={it}>
-                          <span>{it}</span>
-                          <span className="mono dim" aria-hidden="true">
-                            {pad(j + 1)}
-                          </span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 

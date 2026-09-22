@@ -13,6 +13,8 @@ Built with Next.js (App Router). Static export-friendly, no backend.
 - **Latest Work** — Gambler's Ruin gets seeded random-walk card art
   (`src/components/RandomWalks.tsx`); ARIA shows a poster with a play button and
   only mounts the video once it's clicked (`src/components/VideoCard.tsx`).
+- **Recognition photos** — monochrome until hovered; clicking one opens a short
+  caption naming the event it's from (`src/components/CasePhotos.tsx`).
 - **Motion** — sections fade up as they scroll in (`src/components/Reveal.tsx`) and
   pill buttons have a slight magnetic pull (`src/components/Magnetic.tsx`). Both
   respect `prefers-reduced-motion`.
