@@ -2,25 +2,27 @@
 
 Personal portfolio site for Jasman Mander — Financial Mathematics & BBA, Wilfrid Laurier University.
 
-Built with Next.js (App Router) and three.js. Static export-friendly, no backend.
+Built with Next.js (App Router). Static export-friendly, no backend.
 
 ## Signature pieces
 
-- **Hero** — a candlestick series rendered as a voxel/particle point cloud
-  (`src/components/CandlestickCloud.tsx`). Bars print off the right edge and drift
-  left on a mean-reverting random walk; drag to orbit. Point count and pixel ratio
-  step down on mobile, and the whole thing honours `prefers-reduced-motion`.
-- **Cursor layer** — a soft ambient glow that trails the pointer
-  (`src/components/CursorGlow.tsx`) plus a magnetic pull on links and cards
-  (`src/components/Magnetic.tsx`). Both disable themselves on coarse pointers.
+- **Hero** — a black-and-white cut-out portrait (`public/images/portrait.png`,
+  shoulders widened past the original photo's crop) with the name set huge across
+  it in `mix-blend-mode: difference`, so it inverts wherever it crosses the portrait.
+  On phones the name stacks onto two lines.
+- **Latest Work** — Gambler's Ruin gets seeded random-walk card art
+  (`src/components/RandomWalks.tsx`); ARIA shows a poster with a play button and
+  only mounts the video once it's clicked (`src/components/VideoCard.tsx`).
+- **Motion** — sections fade up as they scroll in (`src/components/Reveal.tsx`) and
+  pill buttons have a slight magnetic pull (`src/components/Magnetic.tsx`). Both
+  respect `prefers-reduced-motion`.
 
 ## Theming
 
-Dark is the default. Light is a complete second theme, not an afterthought.
-Palette is Claude's (warm terracotta on ivory / near-black), defined as CSS custom
-properties at the top of `src/app/globals.css`. `<html data-theme>` is the source of
-truth; an inline boot script in `src/app/layout.tsx` applies the stored choice before
-first paint so there's no flash.
+One theme: ink on a light paper ground for the hero and contact band, a near-black
+body in between, and a single warm accent (`--accent`). Tokens live at the top of
+`src/app/globals.css`. Type is Instrument Sans with IBM Plex Mono for labels, both
+self-hosted through `next/font`.
 
 ## Content
 
@@ -34,7 +36,7 @@ caption should stay.
 ## Assets
 
 - `public/resume/` — resume PDF
-- `public/images/` — case competition photos, ARIA video poster
+- `public/images/` — headshot cut-out, case competition photos, ARIA video poster
 - `public/video/` — ARIA launch video
 
 ## Develop

@@ -6,20 +6,36 @@
 
 export const profile = {
   name: "Jasman Mander",
-  positioning:
-    "Financial Mathematics and business, where the modelling meets the market.",
-  location: "Brampton, ON",
+  description:
+    "Financial Mathematics & Business student at Wilfrid Laurier University, based in Toronto.",
+  /** Hero tagline, one entry per line. */
+  studies: ["Financial Mathematics", "& Business, Laurier"],
+  location: "Toronto, ON",
   email: "Jasmander789@gmail.com",
   linkedin: "https://www.linkedin.com/in/Jasman-M",
   github: "https://github.com/Jasman-M",
   resume: "/resume/J_Mander_Business_Resume.pdf",
+  headshot: "/images/portrait.png",
 };
 
-export const about = [
-  "I’m a second-year student at Wilfrid Laurier University, working through a Financial Mathematics and Bachelor of Business Administration double degree.",
-  "I’m based in Brampton, Ontario, and I spend most of my time on capital markets — active trading and investing, and the quantitative work underneath it.",
-  "Outside of that I train in endurance athletics, currently working toward an Ironman triathlon.",
+export const about = {
+  lead: "Off the clock,",
+  accent: "I’m training for an Ironman.",
+  body: "Based in Toronto, ON. Most of my spare time goes into endurance training — swim, bike, run, repeat. I also played soccer and volleyball, and I’m still hooked on Clash of Clans.",
+  hobbies: ["Triathlon", "Soccer", "Volleyball", "Clash of Clans"],
+};
+
+/** The full Ironman distance, leg by leg. */
+export const ironman = [
+  { leg: "Swim", value: "3.8", unit: "km" },
+  { leg: "Bike", value: "180", unit: "km" },
+  { leg: "Run", value: "42.2", unit: "km" },
 ];
+
+export const contact = {
+  title: "Got an Idea? Let’s Talk.",
+  body: "Always up for a conversation — case competitions, projects or triathlon training.",
+};
 
 export type CaseComp = {
   id: string;
@@ -27,6 +43,8 @@ export type CaseComp = {
   subtitle: string;
   placement: string | null;
   prize: string | null;
+  /** Shown in the results table when there's no placement to report. */
+  headline?: string;
   competition: string;
   org: string | null;
   date: string;
@@ -92,6 +110,7 @@ export const caseComps: CaseComp[] = [
     subtitle: "Life Insurance Market Entry Strategy",
     placement: null,
     prize: null,
+    headline: "$47.7M modelled pilot profit",
     competition: "LazCup Marketing Case Competition",
     org: "Laurier Marketing Association",
     date: "Jan 2026",
@@ -104,11 +123,18 @@ export const caseComps: CaseComp[] = [
   },
 ];
 
+/** The three photos in the case competition strip, in display order. */
+export const casePhotos = [caseComps[0].images[0], caseComps[1].images[0], caseComps[0].images[1]];
+
 export type Project = {
   name: string;
+  /** Card labels: the kind of work (bottom-left) and a detail (bottom-right). */
+  kind: string;
+  meta: string;
   blurb: string;
+  /** Optional closing sentence; `**...**` renders bold. */
+  highlight: string | null;
   links: { label: string; href: string }[];
-  bullets: string[];
   video: string | null;
   poster: string | null;
 };
@@ -116,26 +142,26 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "Gambler’s Ruin",
+    kind: "Research report",
+    meta: "Monte Carlo · Bootstrap",
     blurb:
-      "A research report on the simple random walk with two absorbing barriers \u2014 exact results derived three independent ways, then pointed at S&P 500 returns since 1990.",
+      "The simple random walk with two absorbing barriers — exact results derived three independent ways, then pointed at S&P 500 returns since 1990.",
+    highlight: "Bootstrapping real returns raised modelled ruin from **5%** to **40%**.",
     links: [
       { label: "Report (PDF)", href: "/reports/gamblers-ruin.pdf" },
       { label: "GitHub", href: "https://github.com/Jasman-M/Gamblers-Ruin-Report" },
-    ],
-    bullets: [
-      "Derived ruin probability and expected duration three independent ways, validated by Monte Carlo",
-      "Applied it to S&P 500 returns since 1990, modelling a **5%** ruin probability for fixed-stake trading",
-      "Bootstrapping the real return distribution raised modelled ruin to **40%**, exposing the fixed-stake flaw",
     ],
     video: null,
     poster: null,
   },
   {
     name: "ARIA",
+    kind: "Launch video",
+    meta: "0:38",
     blurb:
       "An insurance underwriting copilot for life & health, home & property, and commercial & business lines: structured risk intake, tier recommendation, and a generated underwriting worksheet.",
+    highlight: null,
     links: [{ label: "GitHub", href: "https://github.com/Jasman-M/ARIA" }],
-    bullets: [],
     video: "/video/aria-launch.mp4",
     poster: "/images/aria-poster.png",
   },
@@ -168,7 +194,7 @@ export const experience = [
     role: "Lifeguard & Swim Instructor",
     org: "City of Brampton",
     date: "Jan 2025 — Present",
-    place: "Brampton, ON",
+    place: "Ontario",
     bullets: [
       "Supervising concurrent aquatic sessions with real-time risk assessment and compliance protocols",
       "Delivering structured swim instruction across certification levels",
@@ -209,6 +235,7 @@ export const skills = [
 export const education = {
   school: "Wilfrid Laurier University",
   degree: "Financial Mathematics & Bachelor of Business Administration",
+  degreeShort: "Financial Mathematics & BBA",
   date: "Sept 2025 — Present",
   place: "Waterloo, ON",
   coursework: ["Financial Accounting", "Data Analytics", "Financial Mathematics"],
