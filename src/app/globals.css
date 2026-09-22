@@ -339,39 +339,35 @@ h1, h2, h3, p { margin: 0; }
 .introGrid {
   margin-top: 64px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  grid-template-columns: minmax(0, 420px) minmax(0, 480px);
+  justify-content: space-between;
   gap: clamp(40px, 7vw, 96px);
-  align-items: start;
+  align-items: center;
 }
 
-.ironman {
-  margin: 20px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px clamp(28px, 4vw, 56px);
-}
-
-.ironman div {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 8px;
-}
-
-.ironman dt { font-size: 13px; color: var(--dim); }
-
-.ironman dd {
+.introPhoto figure {
   margin: 0;
-  font-size: clamp(40px, 4vw, 56px);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.ironmanUnit {
-  font-size: 0.4em;
-  letter-spacing: -0.01em;
-  color: var(--dim);
+.introPhotoFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--panel);
 }
+
+/* Monochrome like the rest of the page; colour comes back on hover. */
+.introPhotoImg {
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.6s var(--ease);
+}
+
+.introPhotoFrame:hover .introPhotoImg { filter: none; }
 
 .introCopy {
   display: flex;
@@ -405,6 +401,7 @@ h1, h2, h3, p { margin: 0; }
 
 @media (max-width: 860px) {
   .introGrid { grid-template-columns: 1fr; }
+  .introPhoto { max-width: 420px; }
 }
 
 /* ---------------------------------------------------------------

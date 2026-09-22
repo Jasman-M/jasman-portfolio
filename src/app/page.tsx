@@ -11,7 +11,6 @@ import {
   contact,
   education,
   experience,
-  ironman,
   profile,
   projects,
   skills,
@@ -127,9 +126,9 @@ export default function Home() {
             className="heroPortrait"
             src={profile.headshot}
             alt={`Portrait of ${profile.name}.`}
-            width={1356}
+            width={1536}
             height={1195}
-            sizes="(max-width: 640px) 170vw, 1100px"
+            sizes="(max-width: 640px) 195vw, 1200px"
             loading="eager"
             fetchPriority="high"
           />
@@ -182,19 +181,19 @@ export default function Home() {
               </h2>
             </Reveal>
             <div className="introGrid">
-              <Reveal>
-                <p className="mono dim small">(The full distance)</p>
-                <dl className="ironman">
-                  {ironman.map((l) => (
-                    <div key={l.leg}>
-                      <dt>{l.leg}</dt>
-                      <dd>
-                        {l.value}
-                        <span className="ironmanUnit"> {l.unit}</span>
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
+              <Reveal as="div" className="introPhoto">
+                <figure>
+                  <div className="introPhotoFrame">
+                    <Image
+                      src={about.photo.src}
+                      alt={about.photo.alt}
+                      fill
+                      sizes="(max-width: 860px) 100vw, 420px"
+                      className="introPhotoImg"
+                    />
+                  </div>
+                  <figcaption className="mono dim small">({about.photo.caption})</figcaption>
+                </figure>
               </Reveal>
               <Reveal className="introCopy" delay={80}>
                 <p>{about.body}</p>

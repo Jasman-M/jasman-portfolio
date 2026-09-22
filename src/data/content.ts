@@ -15,26 +15,24 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/Jasman-M",
   github: "https://github.com/Jasman-M",
   resume: "/resume/J_Mander_Business_Resume.pdf",
-  headshot: "/images/portrait.png",
+  headshot: "/images/portrait-wide.png",
 };
 
 export const about = {
   lead: "Off the clock,",
-  accent: "I’m training for an Ironman.",
-  body: "Based in Toronto, ON. Most of my spare time goes into endurance training — swim, bike, run, repeat. I also played soccer and volleyball, and I’m still hooked on Clash of Clans.",
-  hobbies: ["Triathlon", "Soccer", "Volleyball", "Clash of Clans"],
+  accent: "I like to keep moving.",
+  body: "Based in Toronto, ON. Right now that mostly means endurance training — I’m working toward an Ironman. I also played soccer and volleyball, and when I’m not moving, I’m probably playing Clash of Clans.",
+  hobbies: ["Endurance training", "Soccer", "Volleyball", "Clash of Clans"],
+  photo: {
+    src: "/images/before-a-run.jpg",
+    alt: "Jasman Mander and a friend holding race bibs 067 and 009 in a parking lot before a run.",
+    caption: "Bib 067, before a run",
+  },
 };
-
-/** The full Ironman distance, leg by leg. */
-export const ironman = [
-  { leg: "Swim", value: "3.8", unit: "km" },
-  { leg: "Bike", value: "180", unit: "km" },
-  { leg: "Run", value: "42.2", unit: "km" },
-];
 
 export const contact = {
   title: "Got an Idea? Let’s Talk.",
-  body: "Always up for a conversation — case competitions, projects or triathlon training.",
+  body: "Always up for a conversation — case competitions, projects or a good run.",
 };
 
 export type CaseComp = {

@@ -6,7 +6,7 @@ Built with Next.js (App Router). Static export-friendly, no backend.
 
 ## Signature pieces
 
-- **Hero** — a black-and-white cut-out portrait (`public/images/portrait.png`,
+- **Hero** — a black-and-white cut-out portrait (`public/images/portrait-wide.png`,
   shoulders widened past the original photo's crop) with the name set huge across
   it in `mix-blend-mode: difference`, so it inverts wherever it crosses the portrait.
   On phones the name stacks onto two lines.
@@ -36,7 +36,7 @@ caption should stay.
 ## Assets
 
 - `public/resume/` — resume PDF
-- `public/images/` — headshot cut-out, case competition photos, ARIA video poster
+- `public/images/` — hero portrait cut-out, About photo, case competition photos, ARIA video poster
 - `public/video/` — ARIA launch video
 
 ## Develop
