@@ -15,7 +15,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/Jasman-M",
   github: "https://github.com/Jasman-M",
   resume: "/resume/J_Mander_Business_Resume.pdf",
-  headshot: "/images/portrait-wide.png",
+  headshot: "/images/portrait-cutout.png",
 };
 
 export const about = {
